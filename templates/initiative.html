@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .row {
+              display: flex;
+              width: 75%;
+            }
+            
+            .column {
+              flex: 50%;
+            }
+          </style>
+    </head>
+    <body>
+        <form action='/play' method='get'>
+            {% for key, val in d.items() %}
+            <div class="row">
+                <label for="{{key}}" style="text-transform: capitalize;">{{key}}: </label>
+                <input type="number" name="{{key}}" value="{{val}}">
+            </div>
+            {% endfor %}
+            <input type="submit">
+        </form>
+    </body>
+</html>
