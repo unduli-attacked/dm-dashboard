@@ -1,0 +1,69 @@
+{
+    "name": "",
+    "cr": 0,
+    "descrip": "",
+    "link": "",
+    "ac": 0,
+    "hp": 0,
+    "leg_resist": 0,
+    "size": "",
+    "speed": {
+        "walk": 0,
+        "fly": 0,
+        "swim": 0
+    },
+    "stats": {
+        "STR": [],
+        "DEX": [],
+        "CON": [],
+        "INT": [],
+        "WIS": [],
+        "CHA": []
+    },
+    "skills": {
+        "": 0
+    },
+    "immune": [],
+    "resist": [],
+    "notes": {
+        "": ""
+    },
+    "multiattack": "",
+    "actions": [
+        {
+            "name": "",
+            "type": "attack",
+            "multi": false,
+            "descrip": ""
+        },
+        {
+            "name": "",
+            "type": "spells",
+            "multi": false,
+            "descrip": "",
+            "spells": [
+                {
+                    "name": "",
+                    "link": "",
+                    "slots": null
+                }
+            ]
+        }
+    ],
+    "bonus_actions": [
+        {
+            "name": "",
+            "type": "attack",
+            "descrip": ""
+        }
+    ],
+    "leg_action_num": 0,
+    "leg_action_rem": 0,
+    "legendary_actions": [
+        {
+            "name": "",
+            "cost": 1,
+            "descrip": ""
+        }
+    ]
+}

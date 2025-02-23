@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html ng-app="CombatApp">
+
+<head>
+    <style>
+        .row {
+            display: flex;
+            width: 100%;
+            padding-top: 5px;
+        }
+
+        .column {
+            flex: 50%;
+        }
+
+        .numBox {
+            width: 5em;
+        }
+
+        .inline-header {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .indent-block {
+            margin-left: 20px;
+        }
+
+        .descrip {
+            white-space: pre-line;
+        }
+
+        td {
+            padding-right: 10px;
+        }
+
+        th {
+            padding-right: 10px;
+        }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="static/main.js"></script>
+
+</head>
+
+<body ng-controller="CombatController">
+    <div class="row">
+        <div class="column" style="padding-left: 3%;">
+            <div class="row" id="combat-header">
+                {% raw %}
+                <h2>Current turn: <span style="color:brown; text-transform: capitalize;">{{data.currentPlayer}}</span>
+                </h2>
+                {% endraw %}
+            </div>
+            <div class="row">
+                <div class="column">
+                    <button ng-click="subNext()">NEXT TURN</button>
+                </div>
+                <div class="column">
+                    <button onclick="window.location.href='/initiative'">Change Initiative</button>
+                </div>
+            </div>
+            <div class="row" id="initiative">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Player</th>
+                            <th>Reaction?</th>
+                        </tr>
+                        {% for player in reactions %}
+                        <tr>
+                            <td style="text-transform: capitalize;">{{player}}</td>
+                            <td><input type="checkbox" ng-model="data.reactions.{{player}}" name="{{ player }}React">
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% raw %}
+            <div id="current-actions" ng-if="data.currentPlayer != 'ais'">
+                <div id="react" ng-if="!data.reactions.ais">
+                    <h3>Reactions:</h3>
+                    <div class="indent-block">
+                        <p><strong><i>Opportunity attack.</i></strong> You can make an opportunity attack when a hostile
+                            creature that you can see moves out of your reach. To make the opportunity attack, you use
+                            your reaction to make one melee attack against the provoking creature. The attack occurs
+                            right before the creature leaves your reach.</p>
+                        <p><strong><i>Bringer of Night.</i></strong> Ais can extinguish light-based spells, effects, and
+                            attacks as a bonus action or reaction.</p>
+                    </div>
+                </div>
+                <h3>Legendary actions:</h3>
+                <div class="row">
+                    <p><strong>Legendary actions remaining: </strong>
+                        <input type="number" class="numBox" max="{{data.aisForm.leg_action_num}}" min="0"
+                            ng-model="data.aisForm.leg_action_rem">
+                    </p>
+                </div>
+
+                <div id="leg" ng-if="data.aisForm.leg_action_rem > 0">
+                    <table>
+                        <thead>
+                            <tr style="text-align: left;">
+                                <th>Name</th>
+                                <th>Cost </th>
+                                <th> Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-click="killLeg(legAct.cost)" ng-repeat="legAct in data.aisForm.legendary_actions">
+                                <td>{{legAct.name}}</td>
+                                <td>{{legAct.cost}}</td>
+                                <td><span class="descrip">{{legAct.descrip}}</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <small>Click to use.</small>
+                </div>
+            </div>
+        </div>
+        <div class="column" style="padding-right: 5%;">
+            <div class="row" id="ais-header">
+                <div>
+                    <h2>Current Form: <span style="color:brown;">{{data.aisForm.name}}</span></h2>
+                    <button ng-click="subAisForm()" ng-if="data.currentPlayer == 'ais'">CHANGE FORM</button>
+                    <p style="margin-bottom: 3px">
+                        <i><span class="descrip">{{data.aisForm.descrip}}</span></i>
+                    </p>
+                    <a href="data.aisForm.link">{{data.aisForm.link}}</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label for="CR">CR: </label>
+                    <input class="numBox" type="text" ng-model="data.aisForm.cr" name="CR" disabled>
+                </div>
+                <div class="column">
+                    <label for="size">Size: </label>
+                    <input style="width:5em" type="text" ng-model="data.aisForm.size" name="size" disabled>
+                </div>
+                <div class="column">
+                    <div class="row" style="padding: 0">
+                        <div class="column" ng-repeat="(key, value) in data.aisForm.speed">
+                            <label for="{{key}}">{{key}}: </label>
+                            <input class="numBox" type="text" value="{{value}}" name="{{key}}" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="ais-vals">
+                <div class="column">
+                    <label for="AC">AC: </label>
+                    <input class="numBox" type="text" ng-model="data.aisForm.ac" name="AC" disabled>
+                </div>
+                <div class="column">
+                    <label for="HP">HP: </label>
+                    <input class="numBox" type="number" ng-model="data.aisHP" name="HP">
+                </div>
+                <div class="column">
+                    <label for="leg-res">Legendary resist.: </label>
+                    <input class="numBox" type="number" ng-model="data.aisLegResist" name="leg-res">
+                </div>
+            </div>
+            <div class="row" id="ais-stats">
+                <div class="column" style="text-align: center;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>STR</th>
+                                <th>DEX</th>
+                                <th>CON</th>
+                                <th>INT</th>
+                                <th>WIS</th>
+                                <th>CHA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{data.aisForm.stats.STR[0]}}</td>
+                                <td>{{data.aisForm.stats.DEX[0]}}</td>
+                                <td>{{data.aisForm.stats.CON[0]}}</td>
+                                <td>18</td>
+                                <td>16</td>
+                                <td>19</td>
+                            </tr>
+                            <tr>
+                                <td>+{{data.aisForm.stats.STR[1]}}</td>
+                                <td>+{{data.aisForm.stats.DEX[1]}}</td>
+                                <td>+{{data.aisForm.stats.CON[1]}}</td>
+                                <td>+4</td>
+                                <td>+3</td>
+                                <td>+4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="column">
+                    <h4 style="margin: 0;">Skills:</h4>
+                    <div class="row" style="text-align: left;">
+                        <p style="margin-top:0;" ng-repeat="(key, value) in data.aisForm.skills">
+                            <i>{{key}}: </i>+{{value}},
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <p style="margin-top: 2px;"><span class="inline-header">Immunities: </span>{{data.aisForm.immune}}
+                    </p>
+                    <p style="margin-top: 2px;"><span class="inline-header">Resistances: </span>{{data.aisForm.resist}}
+                    </p>
+                    <p style="margin:2px;"><span class="inline-header">Notes: </span></p>
+                    <div class="indent-block">
+                        <p style="margin-top: 2px;" ng-repeat="(key, value) in data.aisForm.notes">
+                            <strong><i>{{key}}.</i></strong> {{value}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 5px" class="row" id="ais-actions">
+                <details>
+                    <summary><span class="inline-header">ACTIONS</span></summary>
+                    <div class="indent-block">
+                        <details id="multi" ng-if="data.aisForm.multiattack.length > 0">
+                            <summary><span class="inline-header">Multiattack.</span> {{data.aisForm.multiattack}}
+                            </summary>
+                            <div class="indent-block">
+                                <div class="row" style="padding: 0" ng-repeat="act in data.aisForm.actions">
+                                    <p ng-if="act.multi" style="margin: 2px">
+                                        <strong><i>{{act.name}}.</i></strong> <span
+                                            class="descrip">{{act.descrip}}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </details>
+                        <div ng-repeat="act in data.aisForm.actions">
+                            <p
+                                ng-style="(act.hasOwnProperty('recharged') && !act.recharged) ? {'text-decoration': 'line-through'} : {}">
+                                <strong><i>{{act.name}}.<input type="checkbox" ng-if="act.hasOwnProperty('recharged')"
+                                            ng-model="act.recharged"></i></strong> <span
+                                    class="descrip">{{act.descrip}}</span>
+                            </p>
+                            <details ng-if="act.type=='spells'">
+                                <summary>SPELL LIST</summary>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Slots</th>
+                                            <th>Link</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="spell in act.spells">
+                                            <td>{{spell.name}}</td>
+                                            <td>
+                                                <input ng-if="spell.slots >= 0" min="0" type="number"
+                                                    ng-model="spell.slots">
+                                                <p ng-if="spell.slots < 0">∞</p>
+                                            </td>
+                                            <td><a href="spell.link">{{spell.link}}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </details>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="row" id="ais-bonuses">
+                <details>
+                    <summary><span class="inline-header">BONUS ACTIONS</span></summary>
+                    <div class="indent-block">
+                        <p><strong><i>Bringer of Night.</i></strong> Ais can extinguish light-based spells, effects, and
+                            attacks as a bonus action or reaction.</p>
+                        <p><strong><i>Formless.</i></strong> As a bonus action, Ais can transform into another form. The
+                            new
+                            form is chosen randomly from the table. All of their stats except HP, legendary resistance,
+                            and
+                            INT/WIS/CHA are replaced with the new form's.</p>
+                        <p ng-if="data.aisForm.hasOwnProperty('bonus_actions')"
+                            ng-repeat="act in data.aisForm.bonus_actions">
+                            <strong><i>{{act.name}}.</i></strong> <span class="descrip">{{act.descrip}}</span>
+                        </p>
+                    </div>
+                </details>
+            </div>
+            <div class="row" id="ais-legs" ng-if="data.aisForm.leg_action_num > 0">
+                <details>
+                    <summary><span class="inline-header">LEGENDARY ACTIONS</span></summary>
+                    <div class="indent-block">
+                        <p ng-repeat="leg in data.aisForm.legendary_actions">
+                            <strong><i>{{leg.name}} ({{leg.cost}}). </i></strong><span
+                                class="descrip">{{leg.descrip}}</span>
+                        </p>
+                    </div>
+                </details>
+            </div>
+
+        </div>
+    </div>
+
+    {% endraw %}
+
+</body>
+
+</html>

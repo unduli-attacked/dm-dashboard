@@ -1,0 +1,573 @@
+{
+    "goddesses": [
+        {
+            "name": "Tymora",
+            "cr": 30,
+            "descrip": "Goddess of Luck",
+            "link": "https://www.reddit.com/r/DnDBehindTheScreen/comments/97v5pv/5e_deity_stat_block_template/",
+            "ac": 25,
+            "hp": 615,
+            "leg_resist": 8,
+            "size": "large",
+            "speed": {
+                "walk": 60,
+                "fly": 120
+            },
+            "stats": {
+                "STR": [
+                    30,
+                    10
+                ],
+                "DEX": [
+                    20,
+                    5
+                ],
+                "CON": [
+                    30,
+                    10
+                ],
+                "INT": [
+                    26,
+                    8
+                ],
+                "WIS": [
+                    26,
+                    8
+                ],
+                "CHA": [
+                    28,
+                    9
+                ]
+            },
+            "skills": {
+                "Athletics": 19,
+                "DEX save": 9,
+                "WIS save": 17,
+                "Arcana": 17,
+                "Perception": 26,
+                "Religion": 17
+            },
+            "immune": [
+                "Psychic",
+                "Radiant",
+                "Nonmagical bludgeoning, piercing, slashing",
+                "Blinded",
+                "Charmed",
+                "Deafened",
+                "Frightened",
+                "Poisoned",
+                "Stunned"
+            ],
+            "resist": [],
+            "notes": {
+                "Multiple Reactions": "Tymora can take one reaction per turn, rather than only one per round.",
+                "Regeneration": "Tymora regains 30 hit points at the start of her turn",
+                "Lucky": "Once per round, Tymora can choose to reroll any attack, skill check, or saving throw (after the roll is called)."
+            },
+            "multiattack": "Tymora can use her Frightful Presence. She then makes three attacks: two with her Crossbow, and one Gold Spray.",
+            "actions": [
+                {
+                    "name": "Frightful Presence",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "Each creature of Tymora's choice that is within 240 feet of Tymora and aware of her must succeed on a DC 26 Wisdom Saving Throw or become frightened for 1 minute. A creature can repeat the Saving Throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful, or the effect ends for it, the creature is immune to Tymora's Frightful Presence for the next 24 hours. "
+                },
+                {
+                    "name": "Gold Spray",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "A spray of gold coins shoots forth from Tymora's palms in a 30-foot cone. Each creature in the cone must make a DEX save (DC 23) or take (4d6 + 10) bludgeoning damage. Half on success. Each creature must also make a DC 20 WIS save. On fail, they are Charmed until the start of Tymora's next turn and must spend their action trying to collect the gold coins."
+                },
+                {
+                    "name": "Crossbow",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "Ranged Weapon Attack: +19 to hit. Range 120ft., one target. A magical bolt flies out of the crossbow. The target takes (4d8 + 10) piercing damage. The target must also make a DC 22 WIS save. On fail, they have disadvantage on all skill checks and saving throws until the start of Tymora's next turn."
+                }
+            ],
+            "reactions": [
+                {
+                    "name": "Silvery Barbs",
+                    "type": "spell",
+                    "descrip": "Tymora can cast Silvery Barbs at will."
+                }
+            ],
+            "leg_action_num": 5,
+            "leg_action_rem": 5,
+            "legendary_actions": [
+                {
+                    "name": "Crossbow",
+                    "cost": 1,
+                    "descrip": "Ranged Weapon Attack: +19 to hit. Range 120ft., one target. A magical bolt flies out of the crossbow. The target takes (4d8 + 10) piercing damage. The target must also make a DC 22 WIS save. On fail, they have disadvantage on all skill checks and saving throws until the start of Tymora's next turn."
+                },
+                {
+                    "name": "Bad Luck",
+                    "cost": 2,
+                    "descrip": "All creatures within 30ft of Tymora must make a WIS save (DC 20). On fail, they have disadvantage on attacks until they leave the area or the start of Tymora's next turn."
+                },
+                {
+                    "name": "Summon Tiamat",
+                    "cost": 2,
+                    "descrip": "Tymora summons Tiamat's Avatar, who will appear at her predetermined place in the initiative order."
+                }
+            ]
+        },
+        {
+            "name": "Llira",
+            "cr": 30,
+            "descrip": "Goddess of Joy",
+            "link": "https://www.reddit.com/r/DnDBehindTheScreen/comments/97v5pv/5e_deity_stat_block_template/",
+            "ac": 25,
+            "hp": 615,
+            "leg_resist": 8,
+            "size": "large",
+            "speed": {
+                "walk": 60,
+                "fly": 120
+            },
+            "stats": {
+                "STR": [
+                    30,
+                    10
+                ],
+                "DEX": [
+                    20,
+                    5
+                ],
+                "CON": [
+                    30,
+                    10
+                ],
+                "INT": [
+                    26,
+                    8
+                ],
+                "WIS": [
+                    26,
+                    8
+                ],
+                "CHA": [
+                    28,
+                    9
+                ]
+            },
+            "skills": {
+                "Athletics": 19,
+                "DEX save": 9,
+                "WIS save": 17,
+                "Arcana": 17,
+                "Perception": 26,
+                "Religion": 17
+            },
+            "immune": [
+                "Psychic",
+                "Radiant",
+                "Nonmagical bludgeoning, piercing, slashing",
+                "Blinded",
+                "Charmed",
+                "Deafened",
+                "Frightened",
+                "Poisoned",
+                "Stunned"
+            ],
+            "resist": [],
+            "notes": {
+                "Multiple Reactions": "Llira can take one reaction per turn, rather than only one per round.",
+                "Regeneration": "Llira regains 30 hit points at the start of her turn",
+                "Dedicated": "Llira cannot be persuaded on matters of morality."
+            },
+            "multiattack": "Llira can use her Frightful Presence. She then makes three attacks: two with her Gun, and one with Joy.",
+            "actions": [
+                {
+                    "name": "Frightful Presence",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "Each creature of Llira's choice that is within 240 feet of Llira and aware of her must succeed on a DC 26 Wisdom Saving Throw or become frightened for 1 minute. A creature can repeat the Saving Throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful, or the effect ends for it, the creature is immune to Llira's Frightful Presence for the next 24 hours. "
+                },
+                {
+                    "name": "Joy",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "A creature of Llira's choice within range must succeed on a DC 20 WIS save or be overcome with joy and unable to focus on anything other than sheer delight with the world around them. They cannot take any actions, bonus actions, or reactions until they succeed on the WIS save, which they can attempt at the end of their turn. Creatures immune to being charmed are unaffected."
+                },
+                {
+                    "name": "Gun",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "Ranged Weapon Attack: +19 to hit. Range 120ft., one target. A magical projectile flies out of the gun. The target takes (4d6 + 10) piercing damage. Any creature within 30ft of Llira must make a DEX save (DC 23) or take (2d6) thunder damage."
+                }
+            ],
+            "reactions": [
+                {
+                    "name": "Seeming",
+                    "descrip": "Llira can cast Seeming at will (spell save DC 23)."
+                }
+            ],
+            "leg_action_num": 5,
+            "leg_action_rem": 5,
+            "legendary_actions": [
+                {
+                    "name": "Gun",
+                    "cost": 1,
+                    "descrip": "Ranged Weapon Attack: +19 to hit. Range 120ft., one target. A magical projectile flies out of the gun. The target takes (4d6 + 10) piercing damage. Any creature within 30ft of Llira must make a DEX save (DC 23) or take (2d6) thunder damage."
+                },
+                {
+                    "name": "Affection",
+                    "cost": 2,
+                    "descrip": "All creatures within 30ft of Llira must make an INT save (DC 20). On fail, Llira suddenly seems like the kindest person they have ever met. Affected creatures have no desire to harm Llira until the start of her next turn. Creatures who are immune to being charmed are unaffected."
+                },
+                {
+                    "name": "Summon Tiamat",
+                    "cost": 2,
+                    "descrip": "Llira summons Tiamat's Avatar, who will appear at her predetermined place in the initiative order."
+                }
+            ]
+        },
+        {
+            "name": "Loviatar",
+            "cr": 30,
+            "descrip": "Goddess of Pain",
+            "link": "https://www.reddit.com/r/DnDBehindTheScreen/comments/97v5pv/5e_deity_stat_block_template/",
+            "ac": 25,
+            "hp": 615,
+            "leg_resist": 8,
+            "size": "large",
+            "speed": {
+                "walk": 60,
+                "fly": 120
+            },
+            "stats": {
+                "STR": [
+                    30,
+                    10
+                ],
+                "DEX": [
+                    20,
+                    5
+                ],
+                "CON": [
+                    30,
+                    10
+                ],
+                "INT": [
+                    26,
+                    8
+                ],
+                "WIS": [
+                    26,
+                    8
+                ],
+                "CHA": [
+                    28,
+                    9
+                ]
+            },
+            "skills": {
+                "Athletics": 19,
+                "DEX save": 9,
+                "WIS save": 17,
+                "Arcana": 17,
+                "Perception": 26,
+                "Religion": 17
+            },
+            "immune": [
+                "Psychic",
+                "Radiant",
+                "Nonmagical bludgeoning, piercing, slashing",
+                "Blinded",
+                "Charmed",
+                "Deafened",
+                "Frightened",
+                "Poisoned",
+                "Stunned"
+            ],
+            "resist": [],
+            "notes": {
+                "Multiple Reactions": "Loviatar can take one reaction per turn, rather than only one per round.",
+                "Regeneration": "Loviatar regains 30 hit points at the start of her turn",
+                "The Lovers": "Once per round, when Loviatar can reflect her pain, dealing half the damage she took back to the attacker."
+            },
+            "multiattack": "Loviatar can use her Frightful Presence. She then makes three attacks: two with {1}, and one with her Rocket Launcher.",
+            "actions": [
+                {
+                    "name": "Frightful Presence",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "Each creature of Loviatar's choice that is within 240 feet of Loviatar and aware of her must succeed on a DC 26 Wisdom Saving Throw or become frightened for 1 minute. A creature can repeat the Saving Throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful, or the effect ends for it, the creature is immune to Loviatar's Frightful Presence for the next 24 hours. "
+                },
+                {
+                    "name": "Rocket Launcher",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "Ranged Weapon Attack: +19 to hit. Range 120ft., one target. A magical projectile flies out of the launcher. The target takes (2d8 + 5) piercing damage and (2d8 + 5) fire damage. Any creature within 15ft of the target must make a DC 23 DEX save or take (2d6) fire damage and (2d6) thunder damage (half on success)."
+                },
+                {
+                    "name": "Bayonet",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "Melee Weapon Attack: +19 to hit, One target. Hit: (4d6 + 10) piercing damage."
+                }
+            ],
+            "reactions": [
+                {
+                    "name": "Inflict Wounds",
+                    "type": "spell",
+                    "descrip": "Loviatar can cast Inflict Wounds at will (+13 to hit)."
+                }
+            ],
+            "leg_action_num": 5,
+            "leg_action_rem": 5,
+            "legendary_actions": [
+                {
+                    "name": "Bayonet",
+                    "cost": 1,
+                    "descrip": "Melee Weapon Attack: +19 to hit, One target. Hit: (4d6 + 10) piercing damage."
+                },
+                {
+                    "name": "Horrifying Visage",
+                    "cost": 2,
+                    "descrip": "Loviatar emits an air of suffering. All creatures within 30ft must make an INT save (DC 20) or take (4d6) psychic damage."
+                },
+                {
+                    "name": "Summon Tiamat",
+                    "cost": 2,
+                    "descrip": "Lovitar summons Tiamat's Avatar, who will appear at her predetermined place in the initiative order."
+                }
+            ]
+        },
+        {
+            "name": "Mielikki",
+            "cr": 30,
+            "descrip": "Goddess of Forests",
+            "link": "https://www.reddit.com/r/DnDBehindTheScreen/comments/97v5pv/5e_deity_stat_block_template/",
+            "ac": 25,
+            "hp": 615,
+            "leg_resist": 8,
+            "size": "large",
+            "speed": {
+                "walk": 60,
+                "fly": 120
+            },
+            "stats": {
+                "STR": [
+                    30,
+                    10
+                ],
+                "DEX": [
+                    20,
+                    5
+                ],
+                "CON": [
+                    30,
+                    10
+                ],
+                "INT": [
+                    26,
+                    8
+                ],
+                "WIS": [
+                    26,
+                    8
+                ],
+                "CHA": [
+                    28,
+                    9
+                ]
+            },
+            "skills": {
+                "Athletics": 19,
+                "DEX save": 9,
+                "WIS save": 17,
+                "Arcana": 17,
+                "Perception": 26,
+                "Religion": 17
+            },
+            "immune": [
+                "Piercing",
+                "Radiant",
+                "Nonmagical bludgeoning, piercing, slashing",
+                "Blinded",
+                "Charmed",
+                "Deafened",
+                "Frightened",
+                "Poisoned",
+                "Stunned"
+            ],
+            "resist": [],
+            "notes": {
+                "Multiple Reactions": "Mielikki can take one reaction per turn, rather than only one per round.",
+                "Regeneration": "Mielikki regains 30 hit points at the start of her turn",
+                "In Tune With Nature": "Attacks made against Mielikki with a wooden or otherwise plant-based object have disadvantage."
+            },
+            "multiattack": "Mielikki can use her Frightful Presence. She then makes three attacks: two with her Green Thumb, and one her Zweihänder.",
+            "actions": [
+                {
+                    "name": "Frightful Presence",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "Each creature of Mielikki's choice that is within 240 feet of Mielikki and aware of her must succeed on a DC 26 Wisdom Saving Throw or become frightened for 1 minute. A creature can repeat the Saving Throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful, or the effect ends for it, the creature is immune to Mielikki's Frightful Presence for the next 24 hours. "
+                },
+                {
+                    "name": "Green Thumb",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "A tree sprouts from a point of Mielikki's choice within 120ft and instantly grows to a maximum size of a 20ft sphere of twisted branches. If the point is inside a creature, they take (4d8 + 10) piercing damage and are restrained. They can use their action to make a STR check (DC 21) to escape. If they end their turn inside the tree they take an additional (3d8 + 10) piercing damage."
+                },
+                {
+                    "name": "Zweihänder",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "Melee Weapon Attack: +19 to hit, Reach 15ft., one target. Hit: (4d6 + 10) slashing damage."
+                }
+            ],
+            "reactions": [
+                {
+                    "name": "Conjure forest",
+                    "type": "spell",
+                    "descrip": "Mielikki creates the illusion of a forest in a 150-foot cube within 300ft of her. Creatures in the forest must make a DC 20 Investigation check to see through the forest."
+                }
+            ],
+            "leg_action_num": 5,
+            "leg_action_rem": 5,
+            "legendary_actions": [
+                {
+                    "name": "Zweihänder",
+                    "cost": 1,
+                    "descrip": "Melee Weapon Attack: +19 to hit, Reach 15ft., one target. Hit: (4d6 + 10) slashing damage."
+                },
+                {
+                    "name": "Pollination",
+                    "cost": 2,
+                    "descrip": "Mielikki emits a cloud of pollen. All creatures within 30ft must make a CON save (DC 21). On fail, they are Blinded until the start of Mielikki's next turn."
+                },
+                {
+                    "name": "Summon Tiamat",
+                    "cost": 2,
+                    "descrip": "Mieliki summons Tiamat's Avatar, who will appear at her predetermined place in the initiative order."
+                }
+            ]
+        },
+        {
+            "name": "Tiamat",
+            "cr": 0,
+            "descrip": "Dragon Goddess of Evil, humanoid form.",
+            "link": "https://www.aidedd.org/dnd/monstres.php?vo=tiamat",
+            "ac": 25,
+            "hp": 615,
+            "leg_resist": 8,
+            "size": "large",
+            "speed": {
+                "walk": 60,
+                "fly": 120
+            },
+            "stats": {
+                "STR": [
+                    30,
+                    10
+                ],
+                "DEX": [
+                    20,
+                    5
+                ],
+                "CON": [
+                    30,
+                    10
+                ],
+                "INT": [
+                    26,
+                    8
+                ],
+                "WIS": [
+                    26,
+                    8
+                ],
+                "CHA": [
+                    28,
+                    9
+                ]
+            },
+            "skills": {
+                "Athletics": 19,
+                "DEX save": 9,
+                "WIS save": 17,
+                "Arcana": 17,
+                "Perception": 26,
+                "Religion": 17
+            },
+            "immune": [
+                "Acid",
+                "Cold",
+                "Fire",
+                "Lightning",
+                "Poison",
+                "Nonmagical bludgeoning, piercing, slashing",
+                "Blinded",
+                "Charmed",
+                "Deafened",
+                "Frightened",
+                "Poisoned",
+                "Stunned"
+            ],
+            "resist": [],
+            "notes": {
+                "Regeneration": "Tiamat regains 30 hit points at the start of her turn",
+                "Multiple Heads": "Tiamat can take one reaction per turn, rather than only one per round. She also has advantage on saving throws against being knocked unconscious. If she fails a saving throw against an effect that would stun a creature, one of her unspent legendary actions is spent."
+            },
+            "multiattack": "Tiamat can use her Frightful Presence. She then makes three attacks: two with her claws and one with her tail.",
+            "actions": [
+                {
+                    "name": "Frightful Presence",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "Each creature of Tiamat's choice that is within 240 feet of Tiamat and aware of her must succeed on a DC 26 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to Tiamat's Frightful Presence for the next 24 hours."
+                },
+                {
+                    "name": "Claw",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "Weapon Attack: + 19 to hit, reach 15 ft., one target. Hit: 24 (4d6 + 10) slashing damage."
+                },
+                {
+                    "name": "Tail",
+                    "type": "attack",
+                    "multi": true,
+                    "descrip": "Melee Weapon Attack: + 19 to hit, reach 25 ft., one target. Hit: 28 (4d8 + 10) piercing damage."
+                }
+            ],
+            "leg_action_num": 5,
+            "leg_action_rem": 5,
+            "legendary_actions": [
+                {
+                    "name": "Bite",
+                    "cost": 1,
+                    "descrip": "Melee Weapon Attack: +19 to hit, reach 20 ft., one target. Hit: 32 (4d10 + 10) slashing damage plus 14 (4d6) acid damage (black dragon head), lightning damage (blue dragon head), poison damage (green dragon head), fire damage (red dragon head), or cold damage (white dragon head)."
+                },
+                {
+                    "name": "Black Dragon Head: Acid Breath",
+                    "cost": 2,
+                    "descrip": "Tiamat exhales acid in a 120-foot line that is 10 feet wide. Each creature in that line must make a DC 27 Dexterity saving throw, taking 67 (15d8) acid damage on a failed save, or half as much damage on a successful one."
+                },
+                {
+                    "name": "Blue Dragon Head: Lightning Breath",
+                    "cost": 2,
+                    "descrip": "Tiamat exhales lightning in a 120-foot line that is 10 feet wide. Each creature in that line must make a DC 27 Dexterity saving throw, taking 88 (16d10) lightning damage on a failed save, or half as much damage on a successful one."
+                },
+                {
+                    "name": "Green Dragon Head: Poison Breath",
+                    "cost": 2,
+                    "descrip": "Tiamat exhales poisonous gas in a 90-foot cone. Each creature in that area must make a DC 27 Constitution saving throw, taking 77 (22d6) poison damage on a failed save, or half as much damage on a successful one."
+                },
+                {
+                    "name": "Red Dragon Head: Fire Breath",
+                    "cost": 2,
+                    "descrip": "Tiamat exhales fire in a 90-foot cone. Each creature in that area must make a DC 27 Dexterity saving throw, taking 91 (26d6) fire damage on a failed save, or half as much damage on a successful one."
+                },
+                {
+                    "name": "White Dragon Head: Cold Breath",
+                    "cost": 2,
+                    "descrip": "Tiamat exhales an icy blast in a 90-foot cone. Each creature in that area must make a DC 27 Dexterity saving throw, taking 72 (16d8) cold damage on a failed save, or half as much damage on a successful one."
+                }
+            ]
+        }
+    ]
+}

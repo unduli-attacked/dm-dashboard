@@ -41,12 +41,11 @@ class Ais:
 
 
 class Combat:
-    def __init__(self, initiative_dict, ais):
+    def __init__(self, initiative_dict):
         self.init_dict = initiative_dict
         self.initiative = list(dict(sorted(initiative_dict.items(),reverse=True, key=lambda item: int(item[1]))).keys())
         self.reactions = dict.fromkeys(self.initiative, False)
         self.current_index = 0 # first player in the initiative array
-        self.ais = ais
     
     def reset_initiative(self, initiative_dict):
         self.init_dict = initiative_dict

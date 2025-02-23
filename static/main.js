@@ -13,14 +13,12 @@
             });
         }
 
-        $scope.subAisForm = function () {
-            $http.post('/change_form', $scope.data).then(function(results){
-                $scope.data = results.data;
-            });
-        }
-
-        $scope.killLeg = function(cost){
-            $scope.data.aisForm.leg_action_rem -= cost;
+        $scope.killLeg = function(goddessName, cost){
+            for (let goddess of $scope.data.goddesses){
+                if (goddess.name == goddessName){
+                    goddess.leg_action_rem -= cost;
+                }
+            }
         }
     }
 ]);
