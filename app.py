@@ -14,7 +14,7 @@ goddesses = None
 goddess_names = ['tymora', 'llira', 'loviatar', 'mielikki', 'tiamat']
 
 def log(logStr):
-    fl = open('log_'+startTime+'.txt', 'a')
+    fl = open('logs/log_'+startTime+'.txt', 'a')
     fl.write(str(time.time())+" | "+logStr+'\n')
     fl.close()
 
